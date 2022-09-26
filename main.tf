@@ -33,7 +33,7 @@ module "aws-vpc" {
 # 3. Instantiate the Vault Enterprise module!
 module "vault-starter" {
   # Vault Enterprise: uncomment this section
-  source  = "git::https://github.com/uzair07/terraform-aws-vault-ent-starter.git?ref=ed4e02762966486dcb39cd42d2251b36eb6d8948"
+  source  = "git::https://github.com/uzair07/terraform-aws-vault-ent-starter.git?ref=35499aba03c64e2b7dc33cb8516f327042afd37f"
   #version = "0.1.2"
   vault_license_filepath = "./vault-ent.hclic"
 
@@ -43,6 +43,8 @@ module "vault-starter" {
 
   resource_name_prefix = var.resource_name_prefix
   private_subnet_tags  = module.aws-vpc.private_subnet_tags
+
+  instance_type = var.instance_type
 
   # Required variables from VPC example module
   vpc_id = module.aws-vpc.vpc_id

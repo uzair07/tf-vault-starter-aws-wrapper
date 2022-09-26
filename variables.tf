@@ -23,3 +23,8 @@ variable "private_subnet_tags" {
     description = "Explicitly passing in the subnet tags that we'll deploy Vault into, so that both the VPC prereq module and the vault-ent module have the same data and don't depend on each other."
     default = { "Vault": "deploy" }
 }
+
+variable "instance_type" {
+  type = string
+  default = "t2.micro"
+}
